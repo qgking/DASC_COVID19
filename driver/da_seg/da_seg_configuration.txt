@@ -1,0 +1,58 @@
+[Data]
+patch_x = 320
+patch_y = 320
+patch_z = 3
+data_name = 3DCOVIDCT
+unsu_root=../../../medical_data/COVID193DCT/MosMedData/MosMedData_Processed_250
+#unsu_root = ../../../medical_data/COVID193DCT/Italy_COVID/Italy_Processed_2d_250
+data_root = ../../../medical_data/COVID193DCT/3DCOVIDCT/COVID-19-CT-Seg_Processed_250
+split_pickle = ../../../medical_data/COVID193DCT/StructSeg/Task200_StructSegLung_datasplit.pkl
+covid_data_root = ../../../medical_data/COVID193DCT/3DCOVIDCT/COVID-19-CT-Seg_Processed_250
+sc_model_path=../../log/3DCOVIDCT/deeplabdilate2d_camv19/inf_da_0_run_Mos_dapt_v32_20/checkpoint/iter_best_model.pt
+#sc_model_path=../../log/3DCOVIDCT/Italy_iter_best_model_34_1.pt
+patch_each = 200
+#50 moscow,100 majun
+[Network]
+model = deeplabdilate2d_camv19
+#unet,u2netp,fpn,fcn8s,deeplabdilate2d,deeplabdilate2d_cam,deeplabdilate2d_camv19,deeplabdilate2d_camv19_ab_0
+backbone = resnet34
+classes = 2
+channel = 1
+
+[Save]
+save_dir = ../../log/${Data:data_name}/${Network:model}/inf_da_${Run:gpu}_run_${Run:run_num}
+save_model_path = ${save_dir}/checkpoint
+config_file = ${save_dir}/configuration.txt
+load_dir = ${Save:save_dir}
+load_model_path = ${load_dir}/checkpoint
+tmp_dir = ${save_dir}/tmp
+tensorboard_dir = ${save_dir}/tensorboard
+submission_dir = ${load_dir}/submissions
+log_file = ${save_dir}/train_log.txt
+
+[Optimizer]
+learning_algorithm = adam
+learning_rate_d = 1e-4
+learning_rate = 2.5e-4
+beta_1 = .9
+beta_2 = .98
+epsilon = 1e-12
+max_patience = 30
+min_lrate = 0.0000001
+decay = 0.5
+clip = 10
+infer_epoch = 50
+
+[Run]
+n_epochs = 2
+train_batch_size = 4
+test_batch_size = 4
+gpu = 0
+run_num = Mos_dapt_ms_ft_v7_1
+gpu_count = 0
+workers = 16
+printfreq = 1
+update_every = 2
+bad_step = 20
+
+
