@@ -1,6 +1,6 @@
 ### DASC_COVID19
 
-**Domain adaptation based self-correction model for COVID-19 infection segmentation in CT images**(https://doi.org) accepted by Expert Systems with Applications
+**Domain adaptation based self-correction model for COVID-19 infection segmentation in CT images**(https://doi.org/10.1016/j.eswa.2021.114848) accepted by Expert Systems with Applications
 
 by [Qiangguo Jin](https://qgking.github.io/), [Hui Cui](https://hcui7511.github.io/), [Changming Sun](https://vision-cdc.csiro.au/changming.sun/), [Zhaopeng Meng](http://cic.tju.edu.cn/info/1170/2451.htm), [Leyi Wei](http://lab.malab.cn/~wly/), [Ran Su](http://www.escience.cn/people/suran/index.html). 
 
@@ -37,6 +37,7 @@ If the code is helpful for your research, please consider citing:
     author = "Qiangguo Jin, Hui Cui, Changming Sun, Zhaopeng Meng, Leyi Wei, and Ran Su",
     journal = "Expert Systems with Applications",
     year = "2021",
+    pages = "114848"
   }
 
   ```
